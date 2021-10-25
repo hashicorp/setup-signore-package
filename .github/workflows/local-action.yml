@@ -1,0 +1,14 @@
+on:
+  [push]
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: local github action
+        uses: ./.github/actions/install-signore
+        with:
+          packages-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: run signore
+        run: |
+          signore version
