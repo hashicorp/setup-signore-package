@@ -17,7 +17,7 @@ Add a step to your workflow like so:
 ```
     steps:
       - name: install signore
-        uses: hashicorp/setup-signore-test@main
+        uses: hashicorp/setup-signore-test@v1
 ```
 
 With no inputs, the `GITHUB_TOKEN` is passed automatically, and a default version of `signore` is used.
@@ -26,7 +26,7 @@ Optionally, `token`, `version`, and `signer` can be set:
 
 ```
     steps:
-      - uses: hashicorp/setup-signore-test@main
+      - uses: hashicorp/setup-signore-test@v1
         with:
           version: v0
           signer: test_signer
