@@ -2,19 +2,19 @@ name: install signore
 description: copy signore binary from docker image
 inputs:
   signer:
-    description: signer to add to signore configuration
+    description: the signer to add to the signore config (optional)
   token:
     description: |
       GITHUB_TOKEN with access to the signore package
       Not required if the calling repository is in the `hashicorp` GitHub organization
     default: ${{ github.token }}
   version:
-    description: signore version to install (semver supported)
+    description: signore cli version to install (semver supported)
     required: true
     default: v0
 outputs:
-  installed-version:
-    description: version of signore installed
+  version:
+    description: the version of the signore CLI that was installed
     value: ${{ steps.get-version.outputs.installed-version }}
 runs:
   using: composite
