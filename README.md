@@ -1,14 +1,17 @@
 ## What
 
-[setup-signore](https://github.com/hashicorp/setup-signore) reimagined as a composite GitHub Action that copies the [signore](https://github.com/hashicorp/signore) binary from a Docker image to the local disk
+A [setup-signore](https://github.com/hashicorp/setup-signore) alternative for Linux GitHub Runners.
+Extracts a binary from the Signore Docker image on GitHub Packages to the local disk.
 
 ## Why
 
-- the current implementation of the setup-signore GitHub Action requires users to supply a GitHub
-personal access token - this version automatically uses the `GITHUB_TOKEN` vended to a running Action to
-authenticate to the GitHub container registry (ghcr.io)
-- the current implementation of the setup-signore GitHub Action allows users to supply client-id and
-  client-secret values, and writes them to disk. This is not ideal for a number of reasons.
+- the setup-signore GitHub Action requires users to supply a GitHub personal access token
+- this version automatically uses the `GITHUB_TOKEN` vended to a running Action to authenticate to the GitHub container registry (ghcr.io)
+
+## Limitations
+
+- Linux only, because macOS workers do not have Docker installed, and Windows workers have other unexplored issues
+  - Incidentally, look how [fun](https://github.com/moby/moby/blob/master/contrib/download-frozen-image-v2.sh) it is to "pull" a Docker image without Docker
 
 ## How
 

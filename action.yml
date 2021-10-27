@@ -1,5 +1,5 @@
 name: install signore
-description: copy signore binary from docker image
+description: installs the signore client from a GitHub Packages docker image
 inputs:
   signer:
     description: the signer to add to the signore config (optional)
