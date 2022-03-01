@@ -13,11 +13,22 @@ Extracts a binary from the Signore Docker image on GitHub Packages to the local 
 - Linux only, because macOS workers do not have Docker installed, and Windows workers have other unexplored issues
   - Incidentally, look how [fun](https://github.com/moby/moby/blob/master/contrib/download-frozen-image-v2.sh) it is to "pull" a Docker image without Docker
 
+## Permissions
+
+Make sure you have `package: read` scope in your workflow, so that `GITHUB_TOKEN` can access the Docker image.
+
+```yaml
+permissions:
+  packages: read
+```
+
+Read more about [permissions for `GITHUB_TOKEN` in the official docs](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).
+
 ## How
 
 Add a step to your workflow like so:
 
-```
+```yaml
     steps:
       - name: install signore
         uses: hashicorp/setup-signore-package@v1
