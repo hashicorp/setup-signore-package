@@ -15,7 +15,7 @@ Extracts a binary from the Signore Docker image on GitHub Packages to the local 
 
 ## Permissions
 
-One security best practice to keep in mind when configuring your GitHub Actions is [least privilege](https://csrc.nist.gov/glossary/term/least_privilege). GitHub grants a [wide variety of scopes](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) to a GitHub Action's `GITHUB_TOKEN` by default. Whenever possible, you should specify granular scope permissions to confine your workflows to their intended use.
+One security best practice to keep in mind when configuring your GitHub Actions is [least privilege](https://csrc.nist.gov/glossary/term/least_privilege). GitHub grants a [wide variety of scopes](https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token) to a GitHub Action's `GITHUB_TOKEN` by default. Whenever possible, you should specify granularly scoped permissions to confine your workflows to their intended uses.
 
 If specify granular permissions, be sure to include the `package: read` scope. This allows your action to use its `GITHUB_TOKEN` to pull the `signore` Docker image from the GitHub Container Registry.
 
