@@ -15,7 +15,7 @@ Extracts a binary from the Signore Docker image on GitHub Packages to the local 
 
 ## Permissions
 
-Make sure you have `package: read` scope in your workflow, so that `GITHUB_TOKEN` can access the Docker image.
+If you are specifying granular permissions for your workflow be sure to include the `package: read` scope. This allows your action to use its `GITHUB_TOKEN` to pull the `signore` Docker image from the GitHub Container Registry.
 
 ```yaml
 permissions:
