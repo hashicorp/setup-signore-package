@@ -35,6 +35,4 @@ runs:
         [ -n "${{ inputs.signer }}" ] && echo "signer: ${{ inputs.signer }}" >> ~/.signore/config.yaml || true
     - id: get-version
       shell: bash
-      run: |
-        SIGNORE_VERSION=$(signore version)
-        echo "::set-output name=installed-version::$SIGNORE_VERSION"
+      run: echo "installed-version=$(signore version)" >> $GITHUB_OUTPUT
