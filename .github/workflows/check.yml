@@ -17,5 +17,8 @@ jobs:
     permissions:
       packages: read # for signore
     steps:
+      - run: echo $PATH
+
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
       - name: install signore
-        uses: ../../action.yml
+        uses: ../../action
