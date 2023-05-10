@@ -28,8 +28,10 @@ runs:
         echo "${{ inputs.token }}" | docker login -u ${{ github.actor }} --password-stdin ghcr.io
         docker pull ghcr.io/hashicorp/signore:${{ inputs.version }}
         CONTAINER_ID=$(docker create ghcr.io/hashicorp/signore:${{ inputs.version }})
-        docker cp $CONTAINER_ID:/usr/bin/signore /usr/local/bin/signore
+        mkdir -p $HOME/bin
+        docker cp $CONTAINER_ID:/usr/bin/signore $HOME/bin/signore
         docker rm -f $CONTAINER_ID
+        echo "$HOME/bin" >> $GITHUB_PATH
     - name: template signore config
       shell: bash
       run: |
