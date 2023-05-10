@@ -1,0 +1,24 @@
+name: Check Action
+
+permissions: {}
+
+on:
+  push:
+    tags:
+      - v*
+    branches:
+      - master
+      - main
+  pull_request:
+
+jobs:
+  install_signore:
+    runs-on: [self-hosted, linux]
+    permissions:
+      packages: read # for signore
+    steps:
+      - run: echo $PATH
+
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+      - name: install signore
+        uses: ../../action
