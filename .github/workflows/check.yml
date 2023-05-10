@@ -1,0 +1,21 @@
+name: Check Action
+
+permissions: {}
+
+on:
+  push:
+    tags:
+      - v*
+    branches:
+      - master
+      - main
+  pull_request:
+
+jobs:
+  install_signore:
+    runs-on: [self-hosted, linux]
+    permissions:
+      packages: read # for signore
+    steps:
+      - name: install signore
+        uses: ../../action.yml
